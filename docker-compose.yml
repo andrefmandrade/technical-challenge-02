@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  app:
+    container_name: framework-service
+    build:
+      context: .
+      target: development
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+    - "${PORT}:${PORT}"
+    entrypoint: ./.docker/entrypoint.sh
